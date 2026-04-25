@@ -1,0 +1,23 @@
+# ============================================================
+# SolAIr — Central Configuration
+# ============================================================
+# Copy this file to settings.ini and fill in your values.
+#   cp settings.ini.example settings.ini
+# ============================================================
+
+[wifi]
+ssid     = YOUR_WIFI_SSID
+password = YOUR_WIFI_PASSWORD
+
+[mqtt]
+broker_ip   = 192.168.1.100
+broker_port = 1883
+; Base topic — device ID and sensor name are appended automatically
+; e.g. solair/solair-unit-0/temperature
+topic_base  = solair
+
+[devices]
+; Map PlatformIO environment names to logical device IDs.
+; Format:  env_name = device_id
+device_0 = solair-unit-0
+device_1 = solair-unit-1

@@ -1,0 +1,24 @@
+# PlatformIO
+.pio
+firmware/settings.ini
+
+# IDE
+.vscode/.browse.c_cpp.db*
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/ipch
+
+# Frontend
+frontend/node_modules
+frontend/dist
+
+# Python
+backend/__pycache__
+backend/app/__pycache__
+*.pyc
+
+# Environment
+.env
+
+# Claude Code local settings
+.claude/settings.local.json
