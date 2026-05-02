@@ -101,6 +101,56 @@ curl http://localhost:8000/api/data/latest
 
 ---
 
+## Windows Setup
+
+On Windows, the server stack runs entirely inside Docker — no host-level
+Mosquitto is required to run the platform. Install the tools below, then
+the standard `docker compose up -d` command works exactly as on Linux.
+
+### 1. Docker Desktop
+
+Download and install Docker Desktop from the
+[official page](https://docs.docker.com/desktop/setup/install/windows-install/).
+After installation, start Docker Desktop and wait until the engine is running
+before issuing any `docker compose` command.
+
+### 2. Mosquitto (optional — CLI tools only)
+
+The broker runs inside Docker, but if you want `mosquitto_sub` / `mosquitto_pub`
+on the host for debugging, download the Windows installer from
+[mosquitto.org/download](https://mosquitto.org/download/):
+
+- **64-bit Windows**: `mosquitto-x.x.x-install-windows-x64.exe`
+- **32-bit Windows**: `mosquitto-x.x.x-install-windows-x86.exe`
+
+During installation, tick **Add to PATH** so the CLI tools are available in any
+terminal.
+
+### 3. Start the stack
+
+```cmd
+git clone https://github.com/Derukoo/SolAIr.git
+cd SolAIr
+docker compose up -d
+```
+
+Then open **http://localhost:3000**.
+
+### 4. Verify data flow
+
+```cmd
+rem If Mosquitto CLI tools are installed:
+mosquitto_sub -h localhost -t "solair/#"
+
+rem Otherwise check the REST API directly:
+curl http://localhost:8000/api/data/latest
+```
+
+For firmware flashing on Windows, see the
+[Firmware Guide](docs/firmware-guide.md#windows).
+
+---
+
 ## Project Structure
 
 ```
